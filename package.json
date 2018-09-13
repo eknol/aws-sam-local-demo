@@ -1,0 +1,12 @@
+{
+  "name": "aws-sam-local-demo",
+  "version": "0.0.1",
+  "repository": "https://github.com/eknol/aws-sam-local-demo",
+  "author": "Edze Knol",
+  "license": "MIT",
+  "dependencies": {},
+  "scripts": {},
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}
