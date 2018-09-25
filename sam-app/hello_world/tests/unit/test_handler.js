@@ -19,8 +19,8 @@ describe('Tests index', function () {
             expect(response.message).to.be.equal("hello world");
             expect(response.location).to.be.an("string");
 
-            expect(response.location).to.be.equal("94.210.157.168");
-            console.log(response.location);
+            // expect(response.location).to.be.equal("94.210.157.168");
+            // console.log(response.location);
             
         });
     });
