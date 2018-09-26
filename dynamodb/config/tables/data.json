@@ -1,0 +1,11 @@
+{
+  "fruitId": {
+        "S": "fruitId"
+  },
+  "fruitType": {
+        "S": "Apple"
+  },
+  "color": {
+        "S": "Green"
+  }
+}

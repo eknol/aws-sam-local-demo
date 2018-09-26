@@ -1,14 +1,14 @@
 {
-  "TableName": "TEST_TABLE",
+  "TableName": "fruitsTable",
   "KeySchema": [
     {
-      "AttributeName": "TEST_ID",
+      "AttributeName": "fruitId",
       "KeyType": "HASH"
     }
   ],
   "AttributeDefinitions": [
     {
-      "AttributeName": "TEST_ID",
+      "AttributeName": "fruitId",
       "AttributeType": "S"
     }
   ],
