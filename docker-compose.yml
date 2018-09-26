@@ -1,0 +1,14 @@
+version: '3.3'
+services:
+
+  frontend:
+    build: ./frontend/
+    ports:
+    - "8000:80"
+    env_file: ./default.env
+
+  dynamodb:
+    build: ./dynamodb
+    ports:
+    - "8092:4567"
+    env_file: ./default.env

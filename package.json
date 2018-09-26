@@ -4,9 +4,12 @@
   "repository": "https://github.com/eknol/aws-sam-local-demo",
   "author": "Edze Knol",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "aws-sdk": "^2.321.0"
+  },
   "scripts": {},
   "devDependencies": {
-    "gulp": "^3.9.1"
+    "gulp": "^4.0.0",
+    "gulp-shell": "^0.6.5"
   }
 }
