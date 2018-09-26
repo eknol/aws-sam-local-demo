@@ -1,0 +1,19 @@
+{
+  "TableName": "TEST_TABLE",
+  "KeySchema": [
+    {
+      "AttributeName": "TEST_ID",
+      "KeyType": "HASH"
+    }
+  ],
+  "AttributeDefinitions": [
+    {
+      "AttributeName": "TEST_ID",
+      "AttributeType": "S"
+    }
+  ],
+  "ProvisionedThroughput": {
+    "ReadCapacityUnits": 5,
+    "WriteCapacityUnits": 5
+  }
+}
