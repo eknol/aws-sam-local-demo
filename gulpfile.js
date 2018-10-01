@@ -22,3 +22,6 @@ gulp.task('get-data',
     shell.task('aws dynamodb get-item --table-name fruitsTable --key file://dynamodb/config/tables/key.json --endpoint-url http://localhost:8000')
 );
 
+gulp.task('setup-db', gulp.series('create-tables', 'add-data', function(done) {
+    done();
+}));
