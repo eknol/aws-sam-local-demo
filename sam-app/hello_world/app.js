@@ -1,23 +1,34 @@
-const axios = require('axios');
-const url = 'http://checkip.amazonaws.com/';
-let response;
+'use strict';
 
-
-exports.lambda_handler = async (event, context, callback) => {
-    try {
-        const ret = await axios(url);
-        response = {
-            'statusCode': 200,
-            'body': JSON.stringify({
-                message: 'hello world',
-                location: ret.data.trim()
-            })
-        }
+const AWS = require('aws-sdk');
+const config = {
+    aws_table_name: 'fruitsTable',
+    aws_local_config: {
+        region: 'local',
+        endpoint: 'http://dynamodb:8000'
+    },
+    aws_remote_config: {
     }
-    catch (err) {
-        console.log(err);
-        callback(err, null);
-    }
+}; //todo: why cant I import an exported config?
 
-    callback(null, response)
+
+exports.handler = (event, context, callback) => {
+
+            AWS.config.update(config.aws_local_config);
+
+            const docClient = new AWS.DynamoDB.DocumentClient();
+            const params = {
+                TableName: config.aws_table_name,
+            };
+
+            docClient.scan(params, function(err, data) {
+                if (err) {
+                    console.log(" FLIERP ERROR " + err);
+                    callback(null, {body: "Error FLIERP"})
+                } else {
+                    callback(null, {body: "The data: " + JSON.stringify(data)});
+                }
+            });
+
+            // callback(null, {body: "hello, this is a " + event.httpMethod + " request"});
 };
