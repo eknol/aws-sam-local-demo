@@ -41,7 +41,7 @@ start-services: start-docker-compose start-sam-local
 
 
 run-tests:
-	cd sam-app/hello_world/ && \
+	cd sam-app/src/ && \
 	npm run test
 
 
@@ -57,7 +57,7 @@ stop-services: stop-docker-compose stop-sam-local
 
 build:
 	npm install && \
-	cd sam-app/hello_world && \
+	cd sam-app/src && \
 	npm install
 
 all: build start-services setup-db run-tests stop-services

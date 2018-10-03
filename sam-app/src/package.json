@@ -1,0 +1,17 @@
+{
+  "name": "sam-app",
+  "version": "0.0.1",
+  "repository": "https://github.com/eknol/aws-sam-local-demo",
+  "author": "Edze Knol",
+  "license": "MIT",
+  "dependencies": {},
+  "scripts": {
+    "test": "mocha --opts test/mocha.it.opts test/integration"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-http": "^4.2.0",
+    "mocha": "^5.1.1",
+    "request": "^2.88.0"
+  }
+}
