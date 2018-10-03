@@ -2,19 +2,29 @@
 
 
 create-tables() {
-    aws dynamodb create-table --cli-input-json file://dynamodb/config/tables/table.json --endpoint-url http://localhost:8000
+    aws dynamodb create-table \
+        --cli-input-json file://dynamodb/config/tables/table.json \
+        --endpoint-url http://localhost:8000
 }
 
 add-data() {
-    aws dynamodb put-item --table-name fruitsTable --item file://dynamodb/config/tables/data.json --return-consumed-capacity TOTAL --endpoint-url http://localhost:8000
+    aws dynamodb put-item \
+        --table-name fruitsTable \
+        --item file://dynamodb/config/tables/data.json \
+        --return-consumed-capacity TOTAL \
+        --endpoint-url http://localhost:8000
 }
 
 get-data() {
-    aws dynamodb get-item --table-name fruitsTable --key file://dynamodb/config/tables/key.json --endpoint-url http://localhost:8000
+    aws dynamodb get-item \
+        --table-name fruitsTable \
+        --key file://dynamodb/config/tables/key.json \
+        --endpoint-url http://localhost:8000
 }
 
 show-tables() {
-    aws dynamodb list-tables --endpoint-url http://localhost:8000
+    aws dynamodb list-tables \
+        --endpoint-url http://localhost:8000
 }
 
 setup-db() {
@@ -23,16 +33,16 @@ setup-db() {
 }
 
 start-docker-compose() {
-    docker-compose up
+    docker-compose up &
 }
 
 start-sam-local() {
     cd sam-app/ &&
-    sam local start-api --docker-network aws-sam-local-demo_default
+    sam local start-api --docker-network aws-sam-local-demo_default &
 }
 
 start-services() {
-    start-docker-compose &
+    start-docker-compose
     start-sam-local
 }
 
@@ -42,15 +52,15 @@ run-tests() {
 }
 
 stop-docker-compose() {
-    echo 'kill docker-compose somehow ...'
+    docker-compose stop
 }
 
 stop-sam-local() {
-    echo 'kill sam somehow ...'
+    ps aux | grep "Python /usr/local/bin/sam" | grep -v grep | awk '{print $2}' | xargs kill &> /dev/null
 }
 
 stop-services() {
-    stop-docker-compose &
+    stop-docker-compose &&
     stop-sam-local
 }
 
