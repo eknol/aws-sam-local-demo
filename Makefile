@@ -1,3 +1,7 @@
+.DEFAULT_GOAL := all
+.PHONY: build
+
+
 create-tables:
 	aws dynamodb create-table \
 		--cli-input-json file://dynamodb/config/tables/table.json \
@@ -30,7 +34,7 @@ start-docker-compose:
 
 start-sam-local:
 	cd sam-app/ && \
-	sam local start-api --docker-network aws-sam-local-demo_default > /dev/null &
+	sam local start-api --docker-network aws-sam-local-demo_default &
 
 
 start-services: start-docker-compose start-sam-local
@@ -46,10 +50,14 @@ stop-docker-compose:
 
 
 stop-sam-local:
-	ps aux | grep "Python /usr/local/bin/sam" | grep -v grep | awk '{print $$2}' | xargs kill
+	ps aux | grep "Python /usr/local/bin/sam" | grep -v grep | awk '{print $$2}' | xargs kill -s KILL
 
 
 stop-services: stop-docker-compose stop-sam-local
 
+build:
+	npm install && \
+	cd sam-app/hello_world && \
+	npm install
 
-all: start-services setup-db run-tests stop-services
+all: build start-services setup-db run-tests stop-services

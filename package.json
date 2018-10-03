@@ -7,12 +7,7 @@
   "dependencies": {
     "aws-sdk": "^2.321.0"
   },
-  "scripts": {
-    "it": "./run-it.sh run-tests",
-    "docker": "./run-it.sh start-docker-compose",
-    "db": "./run-it.sh setup-db",
-    "sam": "./run-it.sh start-sam-local"
-  },
+  "scripts": {},
   "devDependencies": {
     "gulp": "^4.0.0",
     "gulp-shell": "^0.6.5"
