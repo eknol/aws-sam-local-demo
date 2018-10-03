@@ -7,7 +7,9 @@
   "dependencies": {
     "aws-sdk": "^2.321.0"
   },
-  "scripts": {},
+  "scripts": {
+    "it": "./run-it.sh"
+  },
   "devDependencies": {
     "gulp": "^4.0.0",
     "gulp-shell": "^0.6.5"

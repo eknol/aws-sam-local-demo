@@ -1,16 +1,7 @@
 'use strict';
 
 const AWS = require('aws-sdk');
-const config = {
-    aws_table_name: 'fruitsTable',
-    aws_local_config: {
-        region: 'local',
-        endpoint: 'http://dynamodb:8000'
-    },
-    aws_remote_config: {
-    }
-}; //todo: why cant I import an exported config?
-
+const config = require('./dynamo-config');
 
 exports.handler = (event, context, callback) => {
 
