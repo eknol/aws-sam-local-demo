@@ -20,7 +20,6 @@ get-data:
 		--key file://dynamodb/config/tables/key.json \
 		--endpoint-url http://localhost:8000
 
-
 show-tables:
 	aws dynamodb list-tables \
 		--endpoint-url http://localhost:8000
