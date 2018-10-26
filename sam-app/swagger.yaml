@@ -7,12 +7,17 @@ schemes:
 - http
 paths:
   '/fruits':
-    x-amazon-apigateway-any-method:
+#    x-amazon-apigateway-any-method:
+    get:
       produces:
       - application/json
       responses:
         '200':
           description: 200 response
+          schema:
+            $ref: "#/definitions/Empty"
+        default:
+          description: Unexpected error
           schema:
             $ref: "#/definitions/Empty"
 
