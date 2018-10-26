@@ -20,6 +20,4 @@ exports.handler = (event, context, callback) => {
                     callback(null, {body: "The data: " + JSON.stringify(data)});
                 }
             });
-
-            // callback(null, {body: "hello, this is a " + event.httpMethod + " request"});
 };
